@@ -19,10 +19,11 @@ connectDb();
 const app = express();
 
 app.use(cors({
-  origin: "*",
+  origin: "https://urbanknit-f.onrender.com", // Specify your frontend URL
   methods: "GET,POST,PUT,DELETE,OPTIONS",
-  credentials: true,
+  credentials: true, // Allow cookies and credentials
 }));
+
 
 app.use(express.json());
 app.use(morgan("dev"));
