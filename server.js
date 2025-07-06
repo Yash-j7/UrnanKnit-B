@@ -18,11 +18,23 @@ connectDb();
 
 const app = express();
 
+const allowedOrigins = [
+  "https://urbanknit-f.onrender.com",
+  "https://football-tau-gilt.vercel.app"
+];
+
 app.use(cors({
-  origin: ["https://urbanknit-f.onrender.com", "https://football-tau-gilt.vercel.app/"], // Specify your frontend URLs
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: "GET,POST,PUT,DELETE,OPTIONS",
-  credentials: true, // Allow cookies and credentials
+  credentials: true
 }));
+
 
 
 
