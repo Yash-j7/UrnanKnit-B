@@ -19,10 +19,11 @@ connectDb();
 const app = express();
 
 app.use(cors({
-  origin: "https://urbanknit-f.onrender.com", // Specify your frontend URL
+  origin: ["https://urbanknit-f.onrender.com", "https://football-tau-gilt.vercel.app/"], // Specify your frontend URLs
   methods: "GET,POST,PUT,DELETE,OPTIONS",
   credentials: true, // Allow cookies and credentials
 }));
+
 
 
 app.use(express.json());
