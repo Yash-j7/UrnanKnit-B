@@ -23,7 +23,6 @@ const allowedOrigins = [
   "https://football-tau-gilt.vercel.app"
 ];
 
-ok n?
 app.use(cors({
   origin: "https://football-tau-gilt.vercel.app", // Specify your frontend URL
   methods: "GET,POST,PUT,DELETE,OPTIONS",
