@@ -48,18 +48,18 @@ if (!fs.existsSync(uploadsDir)) {
 app.use("/uploads", express.static(uploadsDir));
 
 // Configure formidable middleware
-app.use(
-  formidable({
-    uploadDir: uploadsDir,
-    keepExtensions: true,
-    multiples: false,
-    maxFileSize: 2 * 1024 * 1024, // 2MB
-    filter: function ({ name, originalFilename, mimetype }) {
-      // Accept only images
-      return mimetype && mimetype.includes("image");
-    },
-  })
-);
+// app.use(
+//   formidable({
+//     uploadDir: uploadsDir,
+//     keepExtensions: true,
+//     multiples: false,
+//     maxFileSize: 2 * 1024 * 1024, // 2MB
+//     filter: function ({ name, originalFilename, mimetype }) {
+//       // Accept only images
+//       return mimetype && mimetype.includes("image");
+//     },
+//   })
+// );
 
 const port = process.env.PORT;
 
