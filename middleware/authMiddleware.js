@@ -4,15 +4,19 @@ import userModel from "../models/userModel.js";
 export const requireSignIn = async (req, res, next) => {
   try {
     // Check if authorization header exists
-    if (!req.headers.authorization) {
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
       return res.status(401).json({
         success: false,
         message: "Authorization header is required",
       });
     }
 
-    // Get token from Bearer header
-    const token = req.headers.authorization.split(" ")[1];
+    // Extract token part after "Bearer "
+    const token = authHeader.startsWith("Bearer ")
+      ? authHeader.split(" ")[1]
+      : authHeader;
+
     if (!token) {
       return res.status(401).json({
         success: false,
