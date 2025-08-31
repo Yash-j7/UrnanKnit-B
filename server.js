@@ -67,7 +67,7 @@ app.use("/uploads", express.static(uploadsDir));
 
 const port = process.env.PORT;
 
-app.use("/api/v1/auth", authRoutes);
+app.use("/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 app.use("/api/visual-search", visualSearchRoutes);
