@@ -65,7 +65,7 @@ app.use("/uploads", express.static(uploadsDir));
 //   })
 // );
 
-const port = process.env.PORT;
+const port = 5000;
 
 app.use("/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
